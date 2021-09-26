@@ -1,5 +1,11 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { useParams, NavLink, useRouteMatch, Route } from 'react-router-dom';
+import {
+  useParams,
+  NavLink,
+  useRouteMatch,
+  useHistory,
+  Route,
+} from 'react-router-dom';
 import { fetchMovie } from '../API/themoviedb';
 import { LoaderSpinner } from '../../Components/LoaderSpinner/LoaderSpinner.jsx';
 import css from './MovieDetailsView.module.css';
@@ -15,6 +21,7 @@ export default function MovieDetailsView() {
   const { movieId } = useParams();
   const { url, path } = useRouteMatch();
   const [movie, setMovie] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     fetchMovie(movieId).then(setMovie);
@@ -24,39 +31,49 @@ export default function MovieDetailsView() {
     window.document.title = movie.title;
   }
 
+  const clickBtn = () => {
+    history.push('/');
+  };
+
   return (
     <>
       {movie && (
-        <div className={css.movieBox}>
-          <div>
-            <img
-              className={css.movieImg}
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-            />
+        <>
+          <button onClick={clickBtn} className={css.btnHome}>
+            Go back
+          </button>
+          <div className={css.movieBox}>
+            <div>
+              <img
+                lazy
+                className={css.movieImg}
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+              />
+            </div>
+
+            <div>
+              <h2 className={css.title}>
+                {movie.title} ({movie.release_date.split('-')[0]})
+              </h2>
+
+              <p className={css.vote}>User score: {movie.vote_average * 10}%</p>
+
+              <h3 className={css.overviewTitle}>Overview</h3>
+              <p className={css.overview}>{movie.overview}</p>
+
+              <h3 className={css.genresTitle}>Genres</h3>
+              <p className={css.genres}>
+                {movie.genres.map(gen => {
+                  return `${gen.name} `;
+                })}
+              </p>
+            </div>
           </div>
-
-          <div>
-            <h2 className={css.title}>
-              {movie.title} ({movie.release_date.split('-')[0]})
-            </h2>
-
-            <p className={css.vote}>User score: {movie.vote_average * 10}%</p>
-
-            <h3 className={css.overviewTitle}>Overview</h3>
-            <p className={css.overview}>{movie.overview}</p>
-
-            <h3 className={css.genresTitle}>Genres</h3>
-            <p className={css.genres}>
-              {movie.genres.map(gen => {
-                return `${gen.name} `;
-              })}
-            </p>
-          </div>
-        </div>
+        </>
       )}
 
-      <p className={ css.information}>Additional information</p>
+      <p className={css.information}>Additional information</p>
 
       <ul className={css.list}>
         <li>
