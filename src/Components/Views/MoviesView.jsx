@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { fetchSearchMovieByQuery } from '../API/themoviedb';
+import css from './HomeView.module.css';
 
 export default function MoviesView() {
   window.document.title = 'movie';
@@ -43,7 +44,9 @@ export default function MoviesView() {
         <ul>
           {selectedMovie.map(movie => (
             <li key={movie.id}>
-              <Link to={`${url}/${movie.id}`}>{movie.title}</Link>
+              <Link to={`${url}/${movie.id}`} className={css.link}>
+                {movie.title}
+              </Link>
             </li>
           ))}
         </ul>

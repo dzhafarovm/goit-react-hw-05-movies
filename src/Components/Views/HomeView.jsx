@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { fetchPopularMoviesOfTheDay } from '../API/themoviedb';
+import css from './HomeView.module.css';
 
 export default function HomeView() {
   window.document.title = 'movie';
 
   const { url } = useRouteMatch();
-
-  //  const { url, path } = useRouteMatch();
   const [popularMovies, setPopularMovies] = useState(null);
 
   useEffect(() => {
@@ -23,7 +22,9 @@ export default function HomeView() {
         <ul>
           {popularMovies.map(movie => (
             <li key={movie.id}>
-              <Link to={`${url}movies/${movie.id}`}>{movie.title}</Link>
+              <Link to={`${url}movies/${movie.id}`} className={css.link}>
+                {movie.title}
+              </Link>
             </li>
           ))}
         </ul>

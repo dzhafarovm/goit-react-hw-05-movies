@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { useParams, NavLink, useRouteMatch, Route } from 'react-router-dom';
 import { fetchMovie } from '../API/themoviedb';
-import MovieCast from './MovieCast';
-import MovieReviews from './MovieReviews';
-
+import { LoaderSpinner } from '../../Components/LoaderSpinner/LoaderSpinner.jsx';
 import css from './MovieDetailsView.module.css';
+
+const MovieCast = lazy(() => import('./MovieCast'));
+const MovieReviews = lazy(() => import('./MovieReviews'));
 
 export default function MovieDetailsView() {
   const { movieId } = useParams();
@@ -71,13 +72,15 @@ export default function MovieDetailsView() {
         </li>
       </ul>
 
-      <Route path={`${path}/Cast`}>
-        <MovieCast movieId={movieId} />
-      </Route>
+      <Suspense fallback={<LoaderSpinner />}>
+        <Route path={`${path}/Cast`}>
+          <MovieCast movieId={movieId} />
+        </Route>
 
-      <Route path={`${path}/Reviews`}>
-        <MovieReviews movieId={movieId} />
-      </Route>
+        <Route path={`${path}/Reviews`}>
+          <MovieReviews movieId={movieId} />
+        </Route>
+      </Suspense>
     </>
   );
 }
