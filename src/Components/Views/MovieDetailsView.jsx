@@ -4,8 +4,12 @@ import { fetchMovie } from '../API/themoviedb';
 import { LoaderSpinner } from '../../Components/LoaderSpinner/LoaderSpinner.jsx';
 import css from './MovieDetailsView.module.css';
 
-const MovieCast = lazy(() => import('./MovieCast'));
-const MovieReviews = lazy(() => import('./MovieReviews'));
+const MovieCast = lazy(() =>
+  import('./MovieCast' /* webpackChunkName: "MovieCast" */),
+);
+const MovieReviews = lazy(() =>
+  import('./MovieReviews' /* webpackChunkName: "MovieReviews" */),
+);
 
 export default function MovieDetailsView() {
   const { movieId } = useParams();

@@ -3,12 +3,24 @@ import { Switch, Route } from 'react-router-dom';
 import AppBar from './Components/AppBar/AppBar.jsx';
 import { LoaderSpinner } from './Components/LoaderSpinner/LoaderSpinner.jsx';
 
-const HomeView = lazy(() => import('./Components/Views/HomeView.jsx'));
-const MoviesView = lazy(() => import('./Components/Views/MoviesView.jsx'));
-const MovieDetailsView = lazy(() =>
-  import('./Components/Views/MovieDetailsView.jsx'),
+const HomeView = lazy(() =>
+  import('./Components/Views/HomeView.jsx' /* webpackChunkName: "HomeView" */),
 );
-const NotFoundView = lazy(() => import('./Components/Views/NotFoundView.jsx'));
+const MoviesView = lazy(() =>
+  import(
+    './Components/Views/MoviesView.jsx' /* webpackChunkName: "MoviesView" */
+  ),
+);
+const MovieDetailsView = lazy(() =>
+  import(
+    './Components/Views/MovieDetailsView.jsx' /* webpackChunkName: "MovieDetailsView" */
+  ),
+);
+const NotFoundView = lazy(() =>
+  import(
+    './Components/Views/NotFoundView.jsx' /* webpackChunkName: "NotFoundView" */
+  ),
+);
 
 export default function App() {
   return (
