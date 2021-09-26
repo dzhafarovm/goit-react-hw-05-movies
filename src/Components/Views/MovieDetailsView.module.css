@@ -40,9 +40,15 @@
   font-size: 14px;
 }
 
+.information {
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 .list {
   list-style: none;
-  margin-top: 10px 0;
+  margin: 0;
   padding: 0;
 }
 

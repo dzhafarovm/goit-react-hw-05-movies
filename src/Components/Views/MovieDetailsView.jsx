@@ -55,6 +55,9 @@ export default function MovieDetailsView() {
           </div>
         </div>
       )}
+
+      <p className={ css.information}>Additional information</p>
+
       <ul className={css.list}>
         <li>
           <NavLink
