@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
 import { fetchSearchMovieByQuery } from '../API/themoviedb';
 import css from './HomeView.module.css';
 
 export default function MoviesView() {
   window.document.title = 'movie';
 
+  const history = useHistory();
+  const location = useLocation();
   const { url } = useRouteMatch();
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [query, setQuery] = useState('');
+
+  const query = new URLSearchParams(location.search).get('query') ?? '';
 
   useEffect(() => {
     if (query.trim() === '') {
@@ -25,8 +28,10 @@ export default function MoviesView() {
   const formSubmit = e => {
     e.preventDefault();
 
-    setQuery(e.target.inp.value);
-    e.target.inp.value = '';
+    history.push({
+      ...location,
+      search: `query=${e.target.inp.value}`,
+    });
 
     resetQuery(e);
   };
@@ -54,3 +59,5 @@ export default function MoviesView() {
     </>
   );
 }
+
+// ?query=${e.target.inp.value}

@@ -17,7 +17,7 @@ export default function MovieDetailsView() {
   }, [movieId]);
 
   if (movie) {
-    window.document.title = `movie: ${movie.title}`;
+    window.document.title = movie.title;
   }
 
   return (
