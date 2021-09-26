@@ -3,6 +3,8 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import { fetchPopularMoviesOfTheDay } from '../API/themoviedb';
 
 export default function HomeView() {
+  window.document.title = 'movie';
+
   const { url } = useRouteMatch();
 
   //  const { url, path } = useRouteMatch();

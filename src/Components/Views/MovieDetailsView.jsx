@@ -15,6 +15,10 @@ export default function MovieDetailsView() {
     fetchMovie(movieId).then(setMovie);
   }, [movieId]);
 
+  if (movie) {
+    window.document.title = `movie: ${movie.title}`;
+  }
+
   return (
     <>
       {movie && (

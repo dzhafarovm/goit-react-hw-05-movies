@@ -3,6 +3,8 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import { fetchSearchMovieByQuery } from '../API/themoviedb';
 
 export default function MoviesView() {
+  window.document.title = 'movie';
+
   const { url } = useRouteMatch();
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [query, setQuery] = useState('');
