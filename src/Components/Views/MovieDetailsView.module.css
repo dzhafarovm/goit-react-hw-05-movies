@@ -1,0 +1,62 @@
+.movieBox {
+  display: flex;
+  gap: 20px;
+  max-width: 800px;
+}
+
+.movieImg {
+  max-width: 200px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.vote {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.overviewTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.overview {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.genresTitle {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.genres {
+  font-size: 14px;
+}
+
+.list {
+  list-style: none;
+  margin-top: 10px 0;
+  padding: 0;
+}
+
+.link {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  color: #4e009d;
+}
+
+.active {
+  composes: link;
+  color: #ff255f;
+}
