@@ -39,8 +39,8 @@ export default function MovieDetailsView() {
     <>
       {movie && (
         <>
-          <button onClick={clickBtn} className={css.btnHome}>
-            Go back
+          <button type="button" onClick={clickBtn} className={css.btnHome}>
+            &larr; Go back
           </button>
           <div className={css.movieBox}>
             <div>
