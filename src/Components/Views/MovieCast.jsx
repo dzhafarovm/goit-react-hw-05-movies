@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { fetchMovieActors } from '../API/themoviedb';
 import css from './MovieCast.module.css';
 
@@ -10,8 +11,6 @@ export default function MovieCast({ movieId }) {
       .then(res => res.cast)
       .then(setCast);
   }, [movieId]);
-
-  console.log('cast', cast);
 
   return (
     <>
@@ -40,3 +39,7 @@ export default function MovieCast({ movieId }) {
     </>
   );
 }
+
+MovieCast.propTypes = {
+  movieId: PropTypes.number.isRequired,
+};

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { fetchMovieReviews } from '../API/themoviedb';
 import css from './MovieReviews.module.css';
 
@@ -15,9 +16,6 @@ export default function MovieReviews({ movieId }) {
       })
       .then(setReviews);
   }, [movieId]);
-
-  console.log('notReviews', notReviews);
-  console.log('reviews', reviews);
 
   return (
     <>
@@ -38,3 +36,7 @@ export default function MovieReviews({ movieId }) {
     </>
   );
 }
+
+MovieReviews.propTypes = {
+  movieId: PropTypes.number.isRequired,
+};
