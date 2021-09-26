@@ -6,6 +6,7 @@ import {
   useHistory,
   Route,
 } from 'react-router-dom';
+import { FaRegArrowAltCircleLeft } from 'react-icons/fa';
 import { fetchMovie } from '../API/themoviedb';
 import { LoaderSpinner } from '../../Components/LoaderSpinner/LoaderSpinner.jsx';
 import css from './MovieDetailsView.module.css';
@@ -40,7 +41,7 @@ export default function MovieDetailsView() {
       {movie && (
         <>
           <button type="button" onClick={clickBtn} className={css.btnHome}>
-            &larr; Go back
+            <FaRegArrowAltCircleLeft size={14} /> Go back
           </button>
           <div className={css.movieBox}>
             <div>

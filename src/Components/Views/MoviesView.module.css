@@ -1,0 +1,29 @@
+.link {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  color: #2e2e2e;
+}
+
+.link:hover {
+  color: #ff255f;
+}
+
+.form,
+.btnSearch {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btnSearch {
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.btnSearch:hover {
+  color: #ff255f;
+}

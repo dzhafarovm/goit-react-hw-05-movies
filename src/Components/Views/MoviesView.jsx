@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
+import { FaSistrix } from 'react-icons/fa';
 import { fetchSearchMovieByQuery } from '../API/themoviedb';
-import css from './HomeView.module.css';
+import css from './MoviesView.module.css';
 
 export default function MoviesView() {
-  window.document.title = 'movie';
+  window.document.title = 'Movies';
 
   const history = useHistory();
   const location = useLocation();
@@ -40,9 +41,11 @@ export default function MoviesView() {
 
   return (
     <>
-      <form onSubmit={formSubmit}>
-        <input type="text" name="inp" />
-        <button type="submit">Search</button>
+      <form onSubmit={formSubmit} className={css.form}>
+        <input type="text" name="inp" placeholder={`enter movie's name`} />
+        <button type="submit" className={css.btnSearch}>
+          <FaSistrix /> Search
+        </button>
       </form>
 
       {selectedMovie && (

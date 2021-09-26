@@ -4,7 +4,7 @@ import { fetchPopularMoviesOfTheDay } from '../API/themoviedb';
 import css from './HomeView.module.css';
 
 export default function HomeView() {
-  window.document.title = 'movie';
+  window.document.title = 'Movies';
 
   const { url } = useRouteMatch();
   const [popularMovies, setPopularMovies] = useState(null);
