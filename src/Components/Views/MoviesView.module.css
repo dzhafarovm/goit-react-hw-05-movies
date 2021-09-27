@@ -1,5 +1,14 @@
+.list {
+  list-style: none;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
 .link {
-  display: block;
+  display: flex;
+  align-items: center;
   margin-bottom: 5px;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
+import { FaFilm } from 'react-icons/fa';
 import { fetchPopularMoviesOfTheDay } from '../API/themoviedb';
 import css from './HomeView.module.css';
 
@@ -19,11 +20,11 @@ export default function HomeView() {
     <>
       <h2>Trending today</h2>
       {popularMovies && (
-        <ul>
+        <ul className={css.list}>
           {popularMovies.map(movie => (
             <li key={movie.id}>
               <Link to={`${url}movies/${movie.id}`} className={css.link}>
-                {movie.title}
+                <FaFilm size={16} className={css.icon} /> {movie.title}
               </Link>
             </li>
           ))}

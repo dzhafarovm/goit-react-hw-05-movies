@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useRouteMatch, useLocation, useHistory } from 'react-router-dom';
-import { FaSistrix } from 'react-icons/fa';
+import { FaSistrix, FaFilm } from 'react-icons/fa';
 import { fetchSearchMovieByQuery } from '../API/themoviedb';
 import css from './MoviesView.module.css';
 
@@ -56,11 +56,11 @@ export default function MoviesView() {
 
       {error && <p className={css.error}>Search result "{query}" not found!</p>}
       {selectedMovie && (
-        <ul>
+        <ul className={css.list}>
           {selectedMovie.map(movie => (
             <li key={movie.id}>
               <Link to={`${url}/${movie.id}`} className={css.link}>
-                {movie.title}
+                <FaFilm size={16} className={css.icon} /> {movie.title}
               </Link>
             </li>
           ))}
