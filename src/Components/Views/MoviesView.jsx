@@ -12,6 +12,7 @@ export default function MoviesView() {
   const { url } = useRouteMatch();
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [error, setError] = useState(false);
+  const [attribute, setAttribute] = useState(true);
 
   const query = new URLSearchParams(location.search).get('query') ?? '';
 
@@ -40,15 +41,24 @@ export default function MoviesView() {
       search: `query=${e.target.inp.value}`,
     });
 
-    // e.target.inp.value = '';
     e.target.reset();
+    setAttribute(true);
   };
 
   return (
     <>
       <form onSubmit={formSubmit} className={css.form}>
-        <input type="text" name="inp" placeholder={`enter movie's name`} />
-        <button type="submit" className={css.btnSearch}>
+        <input
+          type="text"
+          name="inp"
+          placeholder={`enter movie's name`}
+          onChange={e => {
+            if (e.target.value.trim()) {
+              setAttribute(false);
+            } else setAttribute(true);
+          }}
+        />
+        <button type="submit" className={css.btnSearch} disabled={attribute}>
           <FaSistrix /> Search
         </button>
       </form>

@@ -33,7 +33,7 @@
   cursor: pointer;
 }
 
-.btnSearch:hover {
+.btnSearch:hover:enabled {
   color: #ff255f;
 }
 
