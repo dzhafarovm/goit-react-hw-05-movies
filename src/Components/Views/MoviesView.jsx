@@ -40,10 +40,9 @@ export default function MoviesView() {
       search: `query=${e.target.inp.value}`,
     });
 
-    resetQuery(e);
+    // e.target.inp.value = '';
+    e.target.reset();
   };
-
-  const resetQuery = e => (e.target.inp.value = '');
 
   return (
     <>

@@ -15,7 +15,7 @@ export default function MovieCast({ movieId }) {
   return (
     <>
       {cast && (
-        <ul>
+        <ul className={css.list}>
           {cast.map(actor => {
             return (
               <li key={actor.id}>

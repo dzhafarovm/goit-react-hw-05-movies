@@ -1,3 +1,7 @@
+.list {
+  list-style: none;
+}
+
 .actorImg {
   width: 100px;
   height: 150px;
