@@ -27,3 +27,10 @@
 .btnSearch:hover {
   color: #ff255f;
 }
+
+.error {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff255f;
+}

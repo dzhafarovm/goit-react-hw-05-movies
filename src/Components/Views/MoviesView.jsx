@@ -11,6 +11,7 @@ export default function MoviesView() {
   const location = useLocation();
   const { url } = useRouteMatch();
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [error, setError] = useState(false);
 
   const query = new URLSearchParams(location.search).get('query') ?? '';
 
@@ -21,6 +22,11 @@ export default function MoviesView() {
 
     fetchSearchMovieByQuery(query)
       .then(res => {
+        if (res.results.length === 0) {
+          setError(true);
+          return;
+        }
+        setError(false);
         return res.results;
       })
       .then(setSelectedMovie);
@@ -48,6 +54,7 @@ export default function MoviesView() {
         </button>
       </form>
 
+      {error && <p className={css.error}>Search result "{query}" not found!</p>}
       {selectedMovie && (
         <ul>
           {selectedMovie.map(movie => (
@@ -62,5 +69,3 @@ export default function MoviesView() {
     </>
   );
 }
-
-// ?query=${e.target.inp.value}
