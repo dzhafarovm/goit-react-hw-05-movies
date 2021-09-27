@@ -51,7 +51,7 @@ export default function MoviesView() {
         <input
           type="text"
           name="inp"
-          placeholder={`enter movie's name`}
+          placeholder={`Enter movie's name`}
           onChange={e => {
             if (e.target.value.trim()) {
               setAttribute(false);
