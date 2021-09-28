@@ -10,7 +10,8 @@
   margin-bottom: 10px;
 }
 
-.btnHome:hover {
+.btnHome:hover,
+.btnHome:focus {
   cursor: pointer;
   color: #ff255f;
 }
@@ -75,8 +76,12 @@
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
-  text-decoration: none;
   color: #4e009d;
+}
+
+.link:hover,
+.link:focus {
+  color: #ff255f;
 }
 
 .active {

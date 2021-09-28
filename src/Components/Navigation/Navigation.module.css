@@ -11,6 +11,12 @@
   color: #2e2e2e;
 }
 
+.link:hover,
+.link:focus {
+  color: #ff255f;
+  transform: scale(1.15);
+}
+
 .active {
   composes: link;
   color: #ff255f;

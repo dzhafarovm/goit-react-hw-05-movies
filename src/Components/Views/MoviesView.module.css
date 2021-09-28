@@ -17,7 +17,8 @@
   color: #2e2e2e;
 }
 
-.link:hover {
+.link:hover,
+.link:focus {
   color: #ff255f;
 }
 
@@ -33,7 +34,8 @@
   cursor: pointer;
 }
 
-.btnSearch:hover:enabled {
+.btnSearch:hover:enabled,
+.btnSearch:focus:enabled {
   color: #ff255f;
 }
 
