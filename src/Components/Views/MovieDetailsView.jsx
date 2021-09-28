@@ -4,6 +4,7 @@ import {
   NavLink,
   useRouteMatch,
   useHistory,
+  useLocation,
   Route,
 } from 'react-router-dom';
 import { FaRegArrowAltCircleLeft } from 'react-icons/fa';
@@ -23,6 +24,7 @@ export default function MovieDetailsView() {
   const { url, path } = useRouteMatch();
   const [movie, setMovie] = useState(null);
   const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     fetchMovie(movieId).then(setMovie);
@@ -33,7 +35,7 @@ export default function MovieDetailsView() {
   }
 
   const clickBtn = () => {
-    history.push('/');
+    history.push(location.state?.from ? location.state.from : '/');
   };
 
   return (

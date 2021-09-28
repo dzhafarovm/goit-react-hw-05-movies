@@ -68,7 +68,13 @@ export default function MoviesView() {
         <ul className={css.list}>
           {selectedMovie.map(movie => (
             <li key={movie.id}>
-              <Link to={`${url}/${movie.id}`} className={css.link}>
+              <Link
+                to={{
+                  pathname: `${url}/${movie.id}`,
+                  state: { from: location },
+                }}
+                className={css.link}
+              >
                 <FaFilm size={16} className={css.icon} /> {movie.title}
               </Link>
             </li>
